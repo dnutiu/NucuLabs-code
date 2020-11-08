@@ -23,14 +23,11 @@ class MessageTranslator:
 
 class Application:
     def __init__(self):
-        self._printer: Printer = ConsolePrinter(">")
-        self._printer: Printer = VoidPrinter()
-        self._translator: Translator = RomanianTranslator()
         self._input_listener: InputListener = ConsoleInputListener("< ")
 
     def start(self):
         print("starting application.")
-        message_translator = MessageTranslator(self._translator, self._printer)
+        message_translator = MessageTranslator(RomanianTranslator(), ConsolePrinter(">"))
         while True:
             user_in = Message(self._input_listener.get_input())
             if str(user_in) == "exit":
