@@ -14,3 +14,8 @@ class ConsolePrinter(Printer):
 
     def print(self, message: Message):
         print(self._prefix, message)
+
+
+class VoidPrinter(Printer):
+    def print(self, message):
+        pass
